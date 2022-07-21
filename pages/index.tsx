@@ -1,22 +1,21 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { styled, Heading, Box } from "@cabindao/topo";
-import { getData } from "./api/billboards";
+import { getBillboards } from "@api/billboards";
+import BillboardCard from "@components/BillboardCard"
 
 export async function getServerSideProps(context) {
-  const data = await getData();
-
-  console.log("data index: ", data);
+  const records = await getBillboards();
 
   return {
     props: {
-      ...data
+      records,
     },
   };
 }
 
-const Home: NextPage = (props) => {
-  console.log(props);
+const Home: NextPage = ({ records }) => {
+  console.log(records);
 
   return (
     <Box>
@@ -28,6 +27,11 @@ const Home: NextPage = (props) => {
 
       <main>
         <Heading>Test</Heading>
+        <ul>
+          {records.map(record => (
+            <BillboardCard {...record} key={record.Name}/>
+          ))}
+        </ul>
       </main>
     </Box>
   );

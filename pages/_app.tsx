@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { globalCss } from "@cabindao/topo";
-import Layout from "../components/Layout";
+import Layout from "@components/Layout";
 
 const globalStyles = globalCss({
   "html, body": {
