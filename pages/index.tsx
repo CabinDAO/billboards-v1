@@ -15,8 +15,6 @@ export async function getServerSideProps(context) {
 }
 
 const Home: NextPage = ({ records }) => {
-  console.log(records);
-
   return (
     <Box>
       <Head>
@@ -27,7 +25,14 @@ const Home: NextPage = ({ records }) => {
 
       <main>
         <Heading>Test</Heading>
-        <Box css={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", columnGap: "$6", rowGap: "$8" }}>
+        <Box
+          css={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            columnGap: "$6",
+            rowGap: "$8",
+          }}
+        >
           {records.map((record) => (
             <BillboardCard {...record} key={record.Name} />
           ))}
