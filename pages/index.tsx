@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { styled, Heading, Box } from "@cabindao/topo";
 import { getBillboards } from "@api/billboards";
-import BillboardCard from "@components/BillboardCard"
+import BillboardCard from "@components/BillboardCard";
 
 export async function getServerSideProps(context) {
   const records = await getBillboards();
@@ -27,11 +27,11 @@ const Home: NextPage = ({ records }) => {
 
       <main>
         <Heading>Test</Heading>
-        <ul>
-          {records.map(record => (
-            <BillboardCard {...record} key={record.Name}/>
+        <Box css={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", columnGap: "$6", rowGap: "$8" }}>
+          {records.map((record) => (
+            <BillboardCard {...record} key={record.Name} />
           ))}
-        </ul>
+        </Box>
       </main>
     </Box>
   );

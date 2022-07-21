@@ -19,7 +19,7 @@ export type Attachment = {
   type: string;
   width?: number;
   height?: number;
-  thumbnails: [Thumbnail];
+  thumbnails: { [key: string]: Thumbnail };
 };
 
 export type Thumbnail = {
@@ -27,4 +27,3 @@ export type Thumbnail = {
   width: number;
   height: number;
 };
-
