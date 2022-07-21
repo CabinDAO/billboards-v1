@@ -1,8 +1,23 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { styled, Heading, Box } from "@cabindao/topo";
+import { getData } from "./api/billboards";
 
-const Home: NextPage = () => {
+export async function getServerSideProps(context) {
+  const data = await getData();
+
+  console.log("data index: ", data);
+
+  return {
+    props: {
+      ...data
+    },
+  };
+}
+
+const Home: NextPage = (props) => {
+  console.log(props);
+
   return (
     <Box>
       <Head>
