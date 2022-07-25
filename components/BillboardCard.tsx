@@ -9,10 +9,13 @@ import {
 } from "@cabindao/topo";
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import hexToRgba from "hex-to-rgba";
-import { Billboard } from "@types";
+import { FieldSet, Attachment } from "airtable";
 
-export default function BillboardCard(props: Billboard) {
-  let imageUrl = props["Cover Image"][0].thumbnails["large"].url;
+export default function BillboardCard(props: FieldSet) {
+  console.log(props["Cover Image"])
+  let attachments: ReadonlyArray<Attachment> = props["Cover Image"]
+  let attatchment: Attachment = attachments[0];
+  let imageUrl = attatchment.thumbnails["large"].url;
 
   return (
     <a href={props.URL} target="_blank" rel="noopener noreferrer">

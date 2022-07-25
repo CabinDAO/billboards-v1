@@ -1,16 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { catalog } from "@utils/airtable";
-
-type Data = {
-  name: string;
-};
+import { FieldSet } from "airtable";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<FieldSet[]>,
 ) {
-  const data = await getBillboards();
+  const data: FieldSet[] = await getBillboards();
 
   res.status(200).json(data);
 }

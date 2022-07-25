@@ -1,20 +1,26 @@
 import type { NextPage } from "next";
+import { GetServerSideProps } from "next";
+import { FieldSet } from "airtable";
+import {Billboard} from "@types"
 import Head from "next/head";
 import { styled, Heading, Box } from "@cabindao/topo";
 import { getBillboards } from "@api/billboards";
 import BillboardCard from "@components/BillboardCard";
 
-export async function getServerSideProps(context) {
-  const records = await getBillboards();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const records: FieldSet[] = await getBillboards();
 
   return {
     props: {
       records,
     },
   };
-}
+};
 
-const Home: NextPage = ({ records }) => {
+type Props = {
+  records: FieldSet[];
+};
+const Home: NextPage<Props> = ({ records }) => {
   return (
     <Box>
       <Head>
@@ -33,8 +39,12 @@ const Home: NextPage = ({ records }) => {
             rowGap: "$8",
           }}
         >
-          {records.map((record) => (
-            <BillboardCard {...record} key={record.Name} />
+          {records.map((record, i) => (
+            <div key={i}>
+              <BillboardCard 
+                {...record}
+              />
+            </div>
           ))}
         </Box>
       </main>

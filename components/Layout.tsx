@@ -1,3 +1,4 @@
+import * as React from "react";
 import { styled, Text, Heading, Box, Container, Footer } from "@cabindao/topo";
 import PageHeader from "./PageHeader";
 
@@ -8,7 +9,10 @@ const CabinLink = styled("a", {
   },
 });
 
-export default function Layout({ children }) {
+type Props = {
+  children: React.ReactNode
+}
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Box>
       <PageHeader />
@@ -29,3 +33,5 @@ export default function Layout({ children }) {
     </Box>
   );
 }
+
+export default Layout;

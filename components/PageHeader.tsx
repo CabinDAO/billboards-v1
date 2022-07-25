@@ -12,7 +12,7 @@ export default function PageHeader() {
     >
       <Container>
         <Box>
-          <Heading css={{ mb: "$2" }}>Catalog: Billboards</Heading>
+          <Heading css={{ mb: "$2" }}>Catalog: Neighborhoods</Heading>
           <Text weight="light" css={{ m: 0, fontStyle: "italic" }}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           </Text>
