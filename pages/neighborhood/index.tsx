@@ -35,9 +35,17 @@ const Neighborhoods: NextPage<Props> = ({ records }) => {
         <Box
           css={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            columnGap: "$6",
-            rowGap: "$8",
+            columnGap: "$4",
+            rowGap: "$4",
+            "@md": {
+              gridTemplateColumns: "repeat(2, 1fr)",
+            },
+            "@lg": {
+              gridTemplateColumns: "repeat(3, 1fr)",
+            },
+            "@xxl": {
+              gridTemplateColumns: "repeat(4, 1fr)",
+            },
           }}
         >
           {records.map((record, i) => (
