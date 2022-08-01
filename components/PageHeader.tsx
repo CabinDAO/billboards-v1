@@ -1,22 +1,37 @@
-import { Text, Heading, Box, Container } from "@cabindao/topo";
-import { useRouter } from 'next/router'
+import { styled, Text, Heading, Box, Container } from "@cabindao/topo";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-export default function PageHeader({ headingText = "catalog" }: { headingText: string }) {
+const HeaderHeading = styled(Heading, {
+  mb: "$2",
+  display: "inline",
+})
+
+export default function PageHeader({ headingText }: { headingText?: string }) {
+  console.log(headingText);
 
   return (
     <Box
       css={{
         borderBottom: "2px solid",
         borderColor: "$forest",
-        pb: "$5",
+        py: "$5",
         mb: "$12",
       }}
     >
       <Container>
         <Box>
-          <Heading css={{ mb: "$2" }}>
-            { headingText }
-          </Heading>
+          <Link href="/" passHref>
+            <a>
+              <HeaderHeading>catalog</HeaderHeading>
+            </a>
+          </Link>
+          { headingText && (
+            <>
+              <HeaderHeading css={{ mx: "$2" }}>/</HeaderHeading>
+              <HeaderHeading>{headingText}</HeaderHeading>
+            </>
+          )}
           <Text weight="light" css={{ m: 0, fontStyle: "italic" }}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           </Text>

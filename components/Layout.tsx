@@ -11,7 +11,7 @@ const CabinLink = styled("a", {
 
 type Props = {
   children: React.ReactNode;
-  headingText: string;
+  headingText?: string;
 };
 const Layout: React.FC<Props> = ({ children, headingText }) => {
   return (
