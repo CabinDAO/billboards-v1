@@ -1,11 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Heading, Box } from "@cabindao/topo";
+import { styled, theme, Box, Card, CardBody, CardHeader } from "@cabindao/topo";
+import * as AspectRatio from "@radix-ui/react-aspect-ratio";
+import hexToRgba from "hex-to-rgba";
 import Link from "next/link";
 import Layout from "@components/Layout";
 
 type Props = {};
 const Home: NextPage<Props> = () => {
+  const imageUrl = "/container.jpg";
+
   return (
     <Layout headingText="catalog">
       <Head>
@@ -15,14 +19,38 @@ const Home: NextPage<Props> = () => {
       </Head>
 
       <main>
-        <Heading>/</Heading>
-        <ul>
-          <li>
-            <Link href="/neighborhood" passHref>
-              <a>Neighborhoods</a>
-            </Link>
-          </li>
-        </ul>
+        <Box css={{
+          display: 'grid',
+          rowGap: "$4",
+          columnGap: "$4",
+          '@md': {
+            gridTemplateColumns: 'repeat(2, 1fr)'
+          },
+          '@lg': {
+            gridTemplateColumns: 'repeat(3, 1fr)'
+          },
+          '@xxl': {
+            gridTemplateColumns: 'repeat(4, 1fr)'
+          }
+          }}>
+          <Link href="/neighborhood" passHref>
+            <Card as="a">
+              <CardBody
+                css={{
+                  backgroundImage: `linear-gradient( ${hexToRgba(
+                    theme.colors.sand,
+                    0.5,
+                  )}, ${hexToRgba(theme.colors.sand, 0.5)} ), url(${imageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                }}
+              >
+                <AspectRatio.Root />
+              </CardBody>
+              <CardHeader>Neighborhoods</CardHeader>
+            </Card>
+          </Link>
+        </Box>
       </main>
     </Layout>
   );
