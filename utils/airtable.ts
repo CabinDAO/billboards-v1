@@ -5,4 +5,4 @@ configure({
   apiKey: process.env.AIRTABLE_API_KEY,
 });
 
-export const catalog = base(process.env.CATALOG_BASE_ID);
+export const catalog = base(process.env.CATALOG_BASE_ID as string);
