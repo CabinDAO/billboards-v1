@@ -11,14 +11,15 @@ import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import hexToRgba from "hex-to-rgba";
 import { FieldSet, Attachment } from "airtable";
 
-export default function BillboardCard(props: FieldSet) {
-  console.log(props["Cover Image"])
-  let attachments: ReadonlyArray<Attachment> = props["Cover Image"]
-  let attatchment: Attachment = attachments[0];
-  let imageUrl = attatchment.thumbnails["large"].url;
+export default function CatalogItem(props: FieldSet) {
+  let attachments: ReadonlyArray<Attachment> = props[
+    "Cover Image"
+  ] as ReadonlyArray<Attachment>;
+  let attatchment: Attachment = attachments[0] as Attachment;
+  let imageUrl = attatchment?.thumbnails?.large?.url;
 
   return (
-    <a href={props.URL} target="_blank" rel="noopener noreferrer">
+    <a href={props.URL as string} target="_blank" rel="noopener noreferrer">
       <Card>
         <CardBody
           css={{
@@ -33,7 +34,7 @@ export default function BillboardCard(props: FieldSet) {
           <AspectRatio.Root />
         </CardBody>
         <CardHeader>
-          <Heading>{props.Name}</Heading>
+          <Heading>{props.Name as string}</Heading>
         </CardHeader>
       </Card>
     </a>

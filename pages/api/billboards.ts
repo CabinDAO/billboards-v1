@@ -9,17 +9,24 @@ export default async function handler(
 ) {
   const data: FieldSet[] = await getBillboards();
 
+  console.log(data);
+
   res.status(200).json(data);
 }
 
-export async function getBillboards() {
+export async function getBillboards(): Promise<FieldSet[]> {
+  console.log(catalog.table)
+
   return catalog("Billboards")
     .select({
       view: "Grid view",
     })
     .firstPage()
     .then((records) => {
-      const list = records?.map((record) => ({ ...record.fields }));
-      return list;
+      return records?.map((record) => ({ ...record.fields }));
+    })
+    .catch((e) => {
+      console.log(e);
+      throw new Error(e);
     });
 }

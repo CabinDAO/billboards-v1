@@ -1,3 +1,9 @@
+export type CatalogItem = {
+  name: string;
+  url: string;
+  imageUrl: string;
+};
+
 export type Billboard = {
   Name: string;
   Status: string;

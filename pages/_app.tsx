@@ -1,6 +1,5 @@
 import type { AppProps } from "next/app";
 import { globalCss } from "@cabindao/topo";
-import Layout from "@components/Layout";
 
 const globalStyles = globalCss({
   "html, body": {
@@ -20,11 +19,7 @@ const globalStyles = globalCss({
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

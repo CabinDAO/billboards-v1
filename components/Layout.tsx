@@ -10,13 +10,14 @@ const CabinLink = styled("a", {
 });
 
 type Props = {
-  children: React.ReactNode
-}
-const Layout: React.FC<Props> = ({ children }) => {
+  children: React.ReactNode;
+  headingText: string;
+};
+const Layout: React.FC<Props> = ({ children, headingText }) => {
   return (
-    <Box>
-      <PageHeader />
-      <Container css={{pb: "$12"}}>{children}</Container>
+    <Box css={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <PageHeader headingText={headingText} />
+      <Container css={{ pb: "$12", flex: 1 }}>{children}</Container>
       <Footer>
         <Text mono>
           Made with care by{" "}
@@ -32,6 +33,6 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Footer>
     </Box>
   );
-}
+};
 
 export default Layout;
