@@ -9,13 +9,14 @@ export default async function handler(
 ) {
   const data: FieldSet[] = await getBillboards();
 
-  console.log(data);
+  //console.log(data);
 
   res.status(200).json(data);
 }
 
+/// @TODO find and replace 'billboards' with 'neighborhoods'
 export async function getBillboards(): Promise<FieldSet[]> {
-  console.log(catalog.table)
+  //console.log(catalog.table);
 
   return catalog("Billboards")
     .select({
@@ -23,7 +24,9 @@ export async function getBillboards(): Promise<FieldSet[]> {
     })
     .firstPage()
     .then((records) => {
-      return records?.map((record) => ({ ...record.fields }));
+      return records
+        ?.map((record) => ({ ...record.fields }))
+        .filter((record) => record.Status === "Accepted");
     })
     .catch((e) => {
       console.log(e);
