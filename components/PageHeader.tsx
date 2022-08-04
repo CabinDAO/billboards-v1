@@ -5,7 +5,7 @@ import Link from "next/link";
 const HeaderHeading = styled(Heading, {
   mb: "$2",
   display: "inline",
-})
+});
 
 export default function PageHeader({ headingText }: { headingText?: string }) {
   console.log(headingText);
@@ -26,14 +26,14 @@ export default function PageHeader({ headingText }: { headingText?: string }) {
               <HeaderHeading>catalog</HeaderHeading>
             </a>
           </Link>
-          { headingText && (
+          {headingText && (
             <>
               <HeaderHeading css={{ mx: "$2" }}>/</HeaderHeading>
               <HeaderHeading>{headingText}</HeaderHeading>
             </>
           )}
           <Text weight="light" css={{ m: 0, fontStyle: "italic" }}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            Directory for the Cabin-verse.
           </Text>
         </Box>
       </Container>
