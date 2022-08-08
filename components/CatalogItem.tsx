@@ -20,8 +20,8 @@ export default function CatalogItem(props: FieldSet) {
   let attatchment: Attachment = attachments[0] as Attachment;
   let imageUrl = attatchment?.thumbnails?.large?.url;
 
-  console.log(props);
-  const type = props['Neighborhood Type'][0] as string;
+  const neighborhoodType = props["Neighborhood Type"] as ReadonlyArray<String>;
+  const type = neighborhoodType[0] as string;
 
   return (
     <a href={props.URL as string} target="_blank" rel="noopener noreferrer">

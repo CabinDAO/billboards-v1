@@ -45,14 +45,7 @@ const Neighborhoods: NextPage<Props> = ({ records }) => {
               passHref
               href="https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.google.com"
             >
-              <Button
-                tone="forest"
-                as="a"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Become a Neighborhood
-              </Button>
+              <Button tone="forest">Become a Neighborhood</Button>
             </Link>
           </Box>
         </Box>
@@ -95,9 +88,6 @@ const Neighborhoods: NextPage<Props> = ({ records }) => {
           >
             <Button
               tone="forest"
-              as="a"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Become a Neighborhood
             </Button>
