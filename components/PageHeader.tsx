@@ -1,15 +1,13 @@
 import { styled, Text, Heading, Box, Container } from "@cabindao/topo";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const HeaderHeading = styled(Heading, {
   mb: "$2",
   display: "inline",
+  fontSize: "$xl",
 });
 
 export default function PageHeader({ headingText }: { headingText?: string }) {
-  console.log(headingText);
-
   return (
     <Box
       css={{
