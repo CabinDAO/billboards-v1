@@ -1,11 +1,13 @@
 import {
   styled,
+  theme,
+  Box,
   Text,
   Heading,
   Card,
   CardBody,
   CardHeader,
-  theme,
+  Tag,
 } from "@cabindao/topo";
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import hexToRgba from "hex-to-rgba";
@@ -17,6 +19,9 @@ export default function CatalogItem(props: FieldSet) {
   ] as ReadonlyArray<Attachment>;
   let attatchment: Attachment = attachments[0] as Attachment;
   let imageUrl = attatchment?.thumbnails?.large?.url;
+
+  console.log(props);
+  const type = props['Neighborhood Type'][0] as string;
 
   return (
     <a href={props.URL as string} target="_blank" rel="noopener noreferrer">
@@ -31,10 +36,13 @@ export default function CatalogItem(props: FieldSet) {
             backgroundPosition: "center center",
           }}
         >
-          <AspectRatio.Root />
+          <AspectRatio.Root ratio={2/1}/>
         </CardBody>
         <CardHeader>
-          <Heading>{props.Name as string}</Heading>
+          <Heading css={{fontSize: "$xl", fontWeight: "$light"}}>{props.Name as string}</Heading>
+          <Box css={{mt: "$2"}}>
+            <Tag tone="wheat">{type}</Tag>
+          </Box>
         </CardHeader>
       </Card>
     </a>

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cabindao/topo": "^0.8.0",
+    "@cabindao/topo": "0.8.2",
     "@radix-ui/react-aspect-ratio": "^1.0.0",
     "airtable": "^0.11.4",
     "hex-to-rgba": "^2.0.1",
