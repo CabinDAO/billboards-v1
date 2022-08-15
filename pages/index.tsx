@@ -8,7 +8,6 @@ import Layout from "@components/Layout";
 
 type Props = {};
 const Home: NextPage<Props> = () => {
-  const imageUrl = "/container.jpg";
 
   return (
     <Layout>
@@ -42,7 +41,7 @@ const Home: NextPage<Props> = () => {
                   backgroundImage: `linear-gradient( ${hexToRgba(
                     theme.colors.sand,
                     0.5,
-                  )}, ${hexToRgba(theme.colors.sand, 0.5)} ), url(${imageUrl})`,
+                  )}, ${hexToRgba(theme.colors.sand, 0.5)} ), url("/cover-images/neighborhood.jpg")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                 }}
@@ -50,6 +49,24 @@ const Home: NextPage<Props> = () => {
                 <AspectRatio.Root />
               </CardBody>
               <CardHeader>Neighborhoods</CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/outpost" passHref>
+            <Card as="a">
+              <CardBody
+                css={{
+                  backgroundImage: `linear-gradient( ${hexToRgba(
+                    theme.colors.sand,
+                    0.5,
+                  )}, ${hexToRgba(theme.colors.sand, 0.5)} ), url("/cover-images/outpost.jpg")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                }}
+              >
+                <AspectRatio.Root />
+              </CardBody>
+              <CardHeader>Outposts</CardHeader>
             </Card>
           </Link>
         </Box>
