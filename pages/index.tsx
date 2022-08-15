@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { styled, theme, Box, Card, CardBody, CardHeader } from "@cabindao/topo";
+import { styled, theme, Box, Card, CardBody, CardHeader, Heading, Text } from "@cabindao/topo";
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import hexToRgba from "hex-to-rgba";
 import Link from "next/link";
 import Layout from "@components/Layout";
+import Hero from "@components/Hero"
 
 type Props = {};
 const Home: NextPage<Props> = () => {
@@ -19,6 +20,13 @@ const Home: NextPage<Props> = () => {
       </Head>
 
       <main>
+
+        <Hero
+          heading="Welcome to the Cabin-verse!"
+          description="This is the catalog of the Cabin ecosystem. You'll find all our current neighborhoods and outposts here as well as any upcoming programs across all our locations."
+          />
+
+
         <Box
           css={{
             display: "grid",
