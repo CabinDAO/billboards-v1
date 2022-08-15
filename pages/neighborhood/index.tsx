@@ -6,6 +6,7 @@ import { Heading, Text, Button, Box } from "@cabindao/topo";
 import { getBillboards } from "@api/billboards";
 import CatalogItem from "@components/CatalogItem";
 import Layout from "@components/Layout";
+import Hero from "@components/Hero"
 import Link from "next/link";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -34,24 +35,14 @@ const Neighborhoods: NextPage<Props> = ({ records }) => {
       </Head>
 
       <main>
-        <Box css={{ mb: "$12" }}>
-          <Box css={{ mr: "auto", maxWidth: 600 }}>
-            <Heading>Neighborhoods</Heading>
-            <Text weight="light">
-              Cabin is made up of independently owned and operated
-              neighborhoods: co-living communities with strong communities,
-              access to nature, and fast internet.
-            </Text>
-          </Box>
-          <Box css={{}}>
-            <Link
-              passHref
-              href="https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.google.com"
-            >
-              <Button tone="forest">Become a Neighborhood</Button>
-            </Link>
-          </Box>
-        </Box>
+        <Hero
+          heading="Neighborhoods"
+          description="Cabin is made up of independently owned and operated neighborhoods: co-living communities with strong communities, access to nature, and fast internet."
+          cta={{
+            href: "https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.cabin.com",
+            text: "Become a Neighborhood"
+          }}
+        />
 
         <Box
           css={{
