@@ -46,7 +46,7 @@ const Outposts: NextPage<Props> = ({ records }) => {
               passHref
               href="https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.google.com"
             >
-              <Button tone="forest">Become a Outpost</Button>
+              <Button tone="forest">Become an Outpost</Button>
             </Link>
           </Box>
         </Box>
@@ -90,7 +90,7 @@ const Outposts: NextPage<Props> = ({ records }) => {
             <Button
               tone="forest"
             >
-              Become a Outpost
+              Become an Outpost
             </Button>
           </Link>
         </Box>
