@@ -7,6 +7,7 @@ import { getBillboards } from "@api/billboards";
 import CatalogItem from "@components/CatalogItem";
 import Layout from "@components/Layout";
 import Link from "next/link";
+import Hero from "@components/Hero";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   let records: FieldSet[] = await getBillboards();
@@ -34,22 +35,14 @@ const Outposts: NextPage<Props> = ({ records }) => {
       </Head>
 
       <main>
-        <Box css={{ mb: "$12" }}>
-          <Box css={{ mr: "auto", maxWidth: 600 }}>
-            <Heading>Outposts</Heading>
-            <Text weight="light">
-              While Cabin is primarily made up of independently owned and operated neighborhoods, some members of the network are still getting established. We call these Outposts.
-            </Text>
-          </Box>
-          <Box css={{}}>
-            <Link
-              passHref
-              href="https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.google.com"
-            >
-              <Button tone="forest">Become an Outpost</Button>
-            </Link>
-          </Box>
-        </Box>
+        <Hero
+          heading="Outpost"
+          description="While Cabin is primarily made up of independently owned and operated neighborhoods, some members of the network are still getting established. We call these Outposts."
+          cta={{
+            href: "https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=cabin-catalog",
+            text: "Become an Outpost"
+          }}
+        />
 
         <Box
           css={{

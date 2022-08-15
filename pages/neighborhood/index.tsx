@@ -39,7 +39,7 @@ const Neighborhoods: NextPage<Props> = ({ records }) => {
           heading="Neighborhoods"
           description="Cabin is made up of independently owned and operated neighborhoods: co-living communities with strong communities, access to nature, and fast internet."
           cta={{
-            href: "https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=www.cabin.com",
+            href: "https://creatorcabins.typeform.com/to/LbSGqEzL?typeform-source=cabin-catalog",
             text: "Become a Neighborhood"
           }}
         />
